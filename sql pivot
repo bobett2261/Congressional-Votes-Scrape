@@ -1,0 +1,11 @@
+SELECT *
+FROM pivoted_roll_call_votes
+WHERE EXISTS (
+    SELECT 1
+    FROM my_table
+    WHERE my_table.my_column IN (
+        pivoted_roll_call_votes.Column1,
+        pivoted_roll_call_votes.Column2,
+        pivoted_roll_call_votes.Column3
+        -- Add more columns as needed
+    )
